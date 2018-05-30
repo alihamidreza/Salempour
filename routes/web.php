@@ -18,6 +18,7 @@ Route::get('/', function () {
 //Admin panel Routes
 Route::group(['namespace' => 'Admin' , 'prefix' => 'panel'] , function (){
    $this->get('/' , 'HomeController@index');
-   $this->resource('/articles' , 'ArticleController@index');
-   $this->resource('/Products' , 'ProductController@index');
+   $this->resource('/articles' , 'ArticleController');
+   $this->resource('/products' , 'ProductController');
+   $this->resource('/categories' , 'CategoryController');
 });

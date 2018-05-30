@@ -1,4 +1,6 @@
 {
-    "/Admin/js/panel.js": "/Admin/js/panel.js",
-    "/Admin/css/panel.css": "/Admin/css/panel.css"
+    "/js/app.js": "/js/app.js",
+    "/Admin/css/panel.css": "/Admin/css/panel.css",
+    "/css/app.css": "/css/app.css",
+    "/Admin/js/panel.js": "/Admin/js/panel.js"
 }
