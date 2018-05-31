@@ -7,8 +7,9 @@ use App\Category;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Intervention\Image\Facades\Image;
 
-class ArticleController extends Controller
+class ArticleController extends AdminController
 {
     /**
      * Display a listing of the resource.
@@ -46,26 +47,15 @@ class ArticleController extends Controller
             'body' => 'required',
             'tags' => 'required',
             'writer' => 'required',
-            'images' => 'required|image|mimes:jpeg,png,jpg',
+            'images' => 'required|mimes:jpeg,png,jpg',
             'category_id' => 'required',
         ]);
         $category_id = $request->category_id;
-        $user = auth()->user()->id;
-
-
-        $article = Article::create(array_merge($request->all(), ["user_id" => $user]));
+        $images = $this->UploadImage($request->file('images'));
+        $article = auth()->user()->articles()->create(array_merge($request->all(), ['images' => $images]));
         $article->categories()->sync($category_id);
 
-        if ($request->hasFile('images')) {
-            $images = $request->file('images');
-            $file_name = $request->file('images')->hashName();
-            $destinationPath = public_path('/images');
-            $images->move($destinationPath, $file_name);
-            $article->update(['images' => $file_name]);
-            return redirect(route('articles.index'));
-        }
-
-        return dd(1);
+        return redirect(route('articles.index'));
 
     }
 
@@ -101,7 +91,24 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'body' => 'required',
+            'tags' => 'required',
+            'writer' => 'required',
+        ]);
+        $category_id = $request->category_id;
+
+        if ($request->images == null){
+            $article->update(array_merge($request->all() , ['images' => $article->images]));
+            return redirect(route('articles.index'));
+        }
+        @unlink($article->images['images']['321']);
+        @unlink($article->images['images']['898']);
+        $images = $this->UploadImage($request->file('images'));
+        $article->update(array_merge($request->all() , ['images' => $images]));
+
+        return redirect(route('articles.index'));
     }
 
     /**

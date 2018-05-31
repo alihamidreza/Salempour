@@ -43,7 +43,7 @@
                       placeholder="متن را را وارد کنید">{{ old('body') }}</textarea>
         </div>
         <div class="form-group">
-            <input type="submit" class="btn btn-success">
+            <input type="submit" class="btn btn-success" value="ثبت مقاله">
         </div>
     </form>
 @endsection

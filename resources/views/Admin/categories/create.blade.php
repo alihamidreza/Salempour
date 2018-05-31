@@ -13,7 +13,7 @@
             <input type="text" class="form-control" id="name" placeholder="نام را وارد کنید" name="name" value="{{ old('name') }}">
         </div>
         <div class="form-group">
-            <input type="submit" class="btn btn-success">
+            <input type="submit" class="btn btn-success" value="ثبت دسته">
         </div>
     </form>
 

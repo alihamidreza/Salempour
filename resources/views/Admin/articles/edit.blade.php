@@ -6,8 +6,9 @@
     </h3>
     <hr>
     @include('errors')
-    <form action="{{ route('articles.store') }}" method="post">
+    <form action="{{ route('articles.update' , $article->id) }}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
+        {{ method_field('PATCH') }}
         <div class="form-group">
             <label for="title">عنوان</label>
             <input type="text" class="form-control" id="title" placeholder="عنوان را وارد کنید" name="title"
@@ -24,12 +25,11 @@
                    value="{{ $article->tags }}">
         </div>
         <div class="form-group">
-            <label for="images">عکس</label>
-            <input type="file" class="form-control" id="images" placeholder="عکس را را وارد کنید" name="images"
-                   value="{{ old('images') }}">
+            <label for="images">ویرایش عکس</label>
+            <input type="file" class="form-control" id="images" placeholder="عکس را را وارد کنید" name="images">
         </div>
-        <div class="form-group">
-            <img src="/images/{{ $article->images }}" width="200" height="200">
+            <div class="form-group">
+            <img src="/{{ $article->images['images']['321'] }}">
         </div>
         <div class="form-group">
             <select class="form-control" name="category_id[]" multiple>
@@ -45,7 +45,7 @@
                       placeholder="متن را را وارد کنید">{{ $article->body }}</textarea>
         </div>
         <div class="form-group">
-            <input type="submit" class="btn btn-success">
+            <input type="submit" class="btn btn-success" value="ویرایش مقاله">
         </div>
     </form>
 @endsection

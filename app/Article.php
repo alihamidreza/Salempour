@@ -9,7 +9,9 @@ class Article extends Model
 {
     protected $fillable = ['slug' , 'title' , 'body' , 'user_id' , 'writer' , 'tags' , 'images'];
 
-
+    protected $casts = [
+      'images' => 'array',
+    ];
     use Sluggable;
 
     /**
