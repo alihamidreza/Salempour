@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ProductController extends Controller
+class ProductController extends AdminController
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::latest()->paginate(10);
+        return view('Admin.products.all' , compact('products'));
     }
 
     /**
@@ -25,7 +27,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('Admin.products.create' , compact('categories'));
+
     }
 
     /**
@@ -36,7 +40,19 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'body' => 'required',
+            'tags' => 'required',
+            'images' => 'required|mimes:jpeg,png,jpg',
+            'category_id' => 'required',
+        ]);
+        $category_id = $request->category_id;
+        $images = $this->UploadImage($request->file('images'));
+        $product = auth()->user()->products()->create(array_merge($request->all(), ['images' => $images]));
+        $product->categories()->sync($category_id);
+
+        return redirect(route('products.index'));
     }
 
     /**
@@ -58,7 +74,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $categories = Category::all();
+        return view('Admin.products.edit' , compact('product' , 'categories'));
     }
 
     /**
@@ -70,7 +87,23 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'body' => 'required',
+            'tags' => 'required',
+        ]);
+        $category_id = $request->category_id;
+
+        if ($request->images == null){
+            $product->update(array_merge($request->all() , ['images' => $product->images]));
+            return redirect(route('products.index'));
+        }
+        @unlink($product->images['images']['321']);
+        @unlink($product->images['images']['898']);
+        $images = $this->UploadImage($request->file('images'));
+        $product->update(array_merge($request->all() , ['images' => $images]));
+
+        return redirect(route('products.index'));
     }
 
     /**
@@ -81,6 +114,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return redirect(route('products.index'));
     }
 }

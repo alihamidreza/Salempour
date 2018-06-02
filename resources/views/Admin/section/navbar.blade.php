@@ -32,7 +32,7 @@
         </h4>
         <ul class="nav flex-column mb-2">
             <li class="nav-item">
-                <a class="nav-link" href="/panel/protucts">
+                <a class="nav-link" href="/panel/products">
                     <span data-feather="file-text" class="fa fa-shopping-cart"></span>
                     محصولات
                 </a>

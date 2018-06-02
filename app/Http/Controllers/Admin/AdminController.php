@@ -11,6 +11,12 @@ use Intervention\Image\Facades\Image;
 
 class AdminController extends Controller
 {
+
+    public function index()
+    {
+        return view('Admin.index');
+    }
+
     public function UploadImage($file)
     {
         $imagePath = "upload/images/";

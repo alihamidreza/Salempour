@@ -11,14 +11,19 @@
 |
 */
 
+
 Route::get('/', function () {
+//    auth()->logout();
     return view('welcome');
 });
 
 //Admin panel Routes
-Route::group(['namespace' => 'Admin' , 'prefix' => 'panel'] , function (){
-   $this->get('/' , 'HomeController@index');
+Route::group(['namespace' => 'Admin' , 'prefix' => 'panel' , 'middleware' => 'admin'] , function (){
+   $this->get('/' , 'AdminController@index');
    $this->resource('/articles' , 'ArticleController');
    $this->resource('/products' , 'ProductController');
    $this->resource('/categories' , 'CategoryController');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

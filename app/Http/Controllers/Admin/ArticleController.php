@@ -41,7 +41,6 @@ class ArticleController extends AdminController
      */
     public function store(Request $request)
     {
-        auth()->loginUsingId(1);
         $request->validate([
             'title' => 'required',
             'body' => 'required',
