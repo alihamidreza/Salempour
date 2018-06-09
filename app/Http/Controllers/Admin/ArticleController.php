@@ -54,7 +54,7 @@ class ArticleController extends AdminController
         $article = auth()->user()->articles()->create(array_merge($request->all(), ['images' => $images]));
         $article->categories()->sync($category_id);
 
-        return redirect(route('articles.index'));
+        return redirect('/panel/articles');
 
     }
 
@@ -100,14 +100,14 @@ class ArticleController extends AdminController
 
         if ($request->images == null){
             $article->update(array_merge($request->all() , ['images' => $article->images]));
-            return redirect(route('articles.index'));
+            return redirect('/panel/articles');
         }
         @unlink($article->images['images']['321']);
         @unlink($article->images['images']['898']);
         $images = $this->UploadImage($request->file('images'));
         $article->update(array_merge($request->all() , ['images' => $images]));
 
-        return redirect(route('articles.index'));
+        return redirect('/panel/articles');
     }
 
     /**
@@ -119,7 +119,7 @@ class ArticleController extends AdminController
     public function destroy(Article $article)
     {
         $article->delete();
-        return redirect(route('articles.index'));
+        return redirect('/panel/articles');
     }
 
 }

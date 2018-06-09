@@ -12,10 +12,9 @@
 */
 
 
-Route::get('/', function () {
-//    auth()->logout();
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
+
+Route::get('/user/active/email/{token}' , 'UserController@Activation')->name('activation.account');
 
 //Admin panel Routes
 Route::group(['namespace' => 'Admin' , 'prefix' => 'panel' , 'middleware' => 'admin'] , function (){
@@ -23,7 +22,32 @@ Route::group(['namespace' => 'Admin' , 'prefix' => 'panel' , 'middleware' => 'ad
    $this->resource('/articles' , 'ArticleController');
    $this->resource('/products' , 'ProductController');
    $this->resource('/categories' , 'CategoryController');
+   $this->resource('/users' , 'UserController');
 });
-Auth::routes();
+
+Route::group(['namespace' => 'Auth'] , function (){
+    // Authentication Routes...
+    $this->get('login', 'LoginController@showLoginForm')->name('login');
+    $this->post('login', 'LoginController@login');
+    $this->get('logout', 'LoginController@logout')->name('logout');
+
+    // Registration Routes...
+    $this->get('register', 'RegisterController@showRegistrationForm')->name('register');
+    $this->post('register', 'RegisterController@register');
+
+    // Password Reset Routes...
+    $this->get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.request');
+    $this->post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+    $this->get('password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset');
+    $this->post('password/reset', 'ResetPasswordController@reset');
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'articles'] , function (){
+    $this->get('/' , 'ArticleController@index')->name('articles.index');
+});
+
+Route::group(['prefix' => 'products'] , function (){
+    $this->get('/' , 'ProductController@index')->name('products.index');
+});

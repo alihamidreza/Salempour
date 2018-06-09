@@ -52,7 +52,7 @@ class ProductController extends AdminController
         $product = auth()->user()->products()->create(array_merge($request->all(), ['images' => $images]));
         $product->categories()->sync($category_id);
 
-        return redirect(route('products.index'));
+        return redirect('/panel/products');
     }
 
     /**
@@ -96,14 +96,14 @@ class ProductController extends AdminController
 
         if ($request->images == null){
             $product->update(array_merge($request->all() , ['images' => $product->images]));
-            return redirect(route('products.index'));
+            return redirect('/panel/products');
         }
         @unlink($product->images['images']['321']);
         @unlink($product->images['images']['898']);
         $images = $this->UploadImage($request->file('images'));
         $product->update(array_merge($request->all() , ['images' => $images]));
 
-        return redirect(route('products.index'));
+        return redirect('/panel/products');
     }
 
     /**
@@ -115,6 +115,6 @@ class ProductController extends AdminController
     public function destroy(Product $product)
     {
         $product->delete();
-        return redirect(route('products.index'));
+        return redirect('/panel/products');
     }
 }

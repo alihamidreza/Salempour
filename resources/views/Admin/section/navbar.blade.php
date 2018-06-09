@@ -8,13 +8,13 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/panel/users">
                     <span data-feather="file" class="fa fa-users"></span>
                     کاربران
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/panel/comment">
                     <span data-feather="shopping-cart" class="fa fa-comments"></span>
                     نظرات
                 </a>
