@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class="modal-body">
-                    <a href="#" class="container btn btn-danger">همه محصولات</a>
+                    <a href="{{ route('products.index') }}" class="container btn btn-red">همه محصولات</a>
                     @foreach($categories as $category)
                             <a href="#" class="container btn btn-white btn-group">{{ $category->name }}</a>
                     @endforeach
@@ -75,7 +75,7 @@
                     </div>
                 </div>
                 <div class="modal-body">
-                    <a href="#" class="container btn btn-danger">همه مقالات</a>
+                    <a href="{{ route('articles.index') }}" class="container btn btn-red">همه مقالات</a>
                     @foreach($categories as $category)
                         <a href="#" class="container btn btn-white btn-group">{{ $category->name }}</a>
                     @endforeach

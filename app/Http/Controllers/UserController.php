@@ -36,6 +36,7 @@ class UserController extends Controller
         ]);
 
         auth()->loginUsingId($activationCode->user->id);
+        alert()->success('ایمیل شما با موفقیت فعال شد و هم اکنون می توانید از همه امکانات وبسایت استفاده کنید' , 'فعالسازی موفقیت آمیز');
         return redirect('/');
     }
 }

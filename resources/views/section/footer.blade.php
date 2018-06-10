@@ -7,7 +7,7 @@
 
                 <!--Grid column-->
                 <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-                    <h6 class="mb-0 white-text">Get connected with us on social networks!</h6>
+                    <h6 class="mb-0 white-text font-small">ما را در شبکه های اجتمایی دنبال کنید...</h6>
                 </div>
                 <!--Grid column-->
 
@@ -132,7 +132,7 @@
     <!-- Copyright-->
     <div class="footer-copyright py-3 text-center">
         © 2018 designer and programmer:
-        <a href="https://mdbootstrap.com/material-design-for-bootstrap/">
+        <a href="/">
             <strong> ali.hamrani80@gmail.com</strong>
         </a>
     </div>

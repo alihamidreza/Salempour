@@ -445,7 +445,69 @@ header,
     background-color: #1c2331!important;
     cursor: pointer;
 }
-/**
+.description{
+    padding: 30px;
+    padding-top: 59px;
+    height: auto;
+    border: 1px solid #ccc;
+    margin: 0 !important;
+    border-top:none;
+    line-height: 2;
+}
+.backImage2{
+    width: 795px;
+    height: auto;
+}
+.backImage2 .loading{
+    left:46%;
+}
+.leftSide{
+    height: 1000px;
+    background-color: #444444;
+}
+.bg-gray{
+    background-color: #f1f1f1;
+}
+img{
+    -o-object-fit: cover !important;
+       object-fit: cover !important;
+}
+.pattern-2{
+    background-image: url("/images/02.png");
+}
+@media (min-width: 992px) {
+    .col-md-9 {
+        width: 75%;
+    }
+    .singleContent{
+        padding: 0 !important;
+    }
+}
+.a-gradient {
+    background: linear-gradient(40deg,#2096ff,#05ffa3)!important;
+    border-radius: 4px;
+}
+.purple-gradient {
+    background: linear-gradient(40deg,#ff6ec4,#7873f5)!important;
+    border-radius: 4px;
+}
+.categoryHead{
+    color: #444444;
+    padding: 10px;
+    font-weight: normal;
+    text-align: center;
+    font-size: 17px;
+    cursor: pointer;
+}
+/*img:hover{*/
+    /*-webkit-transform: scale(1.05);*/
+    /*transform: scale(1.05);*/
+/*}*/
+/*img{*/
+    /*transition: 0.2s all;*/
+    /*overflow: hidden;*/
+    /*position: relative;*/
+/*}*//**
 *
 *	Name:			IRAN Sans-Serif Font
 *	Version:		5.0

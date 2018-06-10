@@ -13,7 +13,10 @@
 
 
 Route::get('/', 'HomeController@index');
-
+Route::get('emailSend' , function (){
+    alert()->success('ایمیل فعال سازی برای ایمیل شما ارسال شد' , 'ایمیل فعال سازی');
+    return redirect('/');
+});
 Route::get('/user/active/email/{token}' , 'UserController@Activation')->name('activation.account');
 
 //Admin panel Routes
@@ -46,8 +49,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'articles'] , function (){
     $this->get('/' , 'ArticleController@index')->name('articles.index');
+    $this->get('/{article}' , 'ArticleController@single')->name('articles.single');
+    $this->get('/searchArticle' , 'ArticleController@searchArticle')->name('articles.search');
+
 });
 
 Route::group(['prefix' => 'products'] , function (){
     $this->get('/' , 'ProductController@index')->name('products.index');
+    $this->get('/{product}' , 'ProductController@single')->name('products.single');
+//    $this->get('/search/{product}' , 'ArticleController@search')->name('articles.search');
 });

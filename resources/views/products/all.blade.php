@@ -17,7 +17,7 @@
     <div class="row">
         <div class="container">
             <div class="container">
-                <input type="search" class="search col-md-10 col-xs-9" placeholder="مقاله خود را جستوجو کنید...">
+                <input type="search" class="search col-md-10 col-xs-9" placeholder="محصول مورد نظر خود را جستوجو کنید...">
             </div>
 
             <div class="container">
@@ -39,15 +39,13 @@
                             <span class="sr-only">در حال بارگزاری...</span>
                         </div>
                     </div>
-                    <a href="" class="imageStyle"> <img class="card-img-top " src="{{ $product->images['images']['321'] }}"
+                    <a href="{{ route('products.single' , $product->slug) }}" class="imageStyle"> <img class="card-img-top " src="{{ $product->images['images']['321'] }}"
                                      alt="{{ $product->title }}" height="241"></a>
                     <div class="card-body">
                         <span class="writer">نویسنده: {{ $product->writer }}</span>
                         <h4 class="card-title direction">{{ $product->title }}</h4>
                         <p class="card-text direction">{{ str_limit($product->body) }}</p>
-                        <a class="btn btn-primary">مطالعه کردن</a>
-                        <span class="view-comment">0 <i class="fa fa-eye"></i> </span>
-                        <span class="view-comment2">0 <i class="fa fa-commenting"></i> </span>
+                        <a class="btn btn-primary" href="{{ route('products.single' , $product->slug) }}">مشاهده محصول</a>
                     </div>
                 </div>
             </div>

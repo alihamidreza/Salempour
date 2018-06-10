@@ -73,14 +73,14 @@
                                         <span class="sr-only">در حال بارگزاری...</span>
                                     </div>
                                 </div>
-                                <a href="" class="imageStyle"> <img class="card-img-top " src="{{ $article->images['images']['321'] }}"
+                                <a href="{{ route('articles.single' , ['article' => $article->slug]) }}" class="imageStyle"> <img class="card-img-top " src="{{ $article->images['images']['321'] }}"
                                                                     alt="{{ $article->title }}" height="241"></a>
                                 <div class="card-body">
                                     <span class="writer">نویسنده: {{ $article->writer }}</span>
                                     <h4 class="card-title direction">{{ $article->title }}</h4>
                                     <p class="card-text direction">{{ str_limit($article->body) }}</p>
-                                    <a class="btn btn-primary">مطالعه کردن</a>
-                                    <span class="view-comment">0 <i class="fa fa-eye"></i> </span>
+                                    <a class="btn btn-primary" href="{{ route('articles.single' , ['article' => $article->slug]) }}">مطالعه کردن</a>
+                                    <span class="view-comment">{{ $article->viewCount }} <i class="fa fa-eye"></i> </span>
                                     <span class="view-comment2">0 <i class="fa fa-commenting"></i> </span>
                                 </div>
                             </div>
@@ -103,14 +103,14 @@
                                         <span class="sr-only">در حال بارگزاری...</span>
                                     </div>
                                 </div>
-                                <a href="" class="imageStyle"> <img class="card-img-top " src="{{ $article->images['images']['321'] }}"
+                                <a href="{{ route('articles.single' , ['article' => $article->slug]) }}" class="imageStyle"> <img class="card-img-top " src="{{ $article->images['images']['321'] }}"
                                                                     alt="{{ $article->title }}" height="241"></a>
                                 <div class="card-body">
                                     <span class="writer">نویسنده: {{ $article->writer }}</span>
                                     <h4 class="card-title direction">{{ $article->title }}</h4>
                                     <p class="card-text direction">{{ str_limit($article->body) }}</p>
-                                    <a class="btn btn-primary">مطالعه کردن</a>
-                                    <span class="view-comment">0 <i class="fa fa-eye"></i> </span>
+                                    <a class="btn btn-primary" href="{{ route('articles.single' , ['article' => $article->slug]) }}">مطالعه کردن</a>
+                                    <span class="view-comment">{{ $article->viewCount }} <i class="fa fa-eye"></i> </span>
                                     <span class="view-comment2">0 <i class="fa fa-commenting"></i> </span>
                                 </div>
                             </div>
@@ -325,6 +325,23 @@
         <!-- Grid row -->
 
     </section>
-    <!-- Section: Contact v.2 -->
 
+    <!-- Section: Contact v.2 -->
+@section('script')
+    @if (Session::has('sweet_alert.alert'))
+        <script>
+            swal({
+                text: "{!! Session::get('sweet_alert.text') !!}",
+                title: "{!! Session::get('sweet_alert.title') !!}",
+                type: "{!! Session::get('sweet_alert.type') !!}",
+                showConfirmButton: "{!! Session::get('sweet_alert.showConfirmButton') !!}",
+                confirmButtonText: "{!! Session::get('sweet_alert.confirmButtonText') !!}",
+                confirmButtonColor: "#1c2331",
+                icon: "success",
+                button: "خیلی خوب!",
+                // more options
+            });
+        </script>
+    @endif
+@endsection
 @endsection

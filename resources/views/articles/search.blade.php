@@ -16,15 +16,13 @@
     <br><br>
     <div class="row">
         <div class="container">
-            <form action="{{ route('articles.search') }}" method="get">
             <div class="container">
-                <input type="search" class="search col-md-10 col-xs-9" placeholder="مقاله مورد نظر خود را جستوجو کنید..." name="search">
+                <input type="search" class="search col-md-10 col-xs-9" placeholder="مقاله مورد نظر خود را جستوجو کنید...">
             </div>
 
             <div class="container">
                 <button type="submit" class="btnSearch col-md-2 col-xs-3">جستوجو</button>
             </div>
-            </form>
         </div>
     </div>
     <br>
@@ -42,7 +40,7 @@
                             <span class="sr-only">در حال بارگزاری...</span>
                         </div>
                     </div>
-                    <a href="{{ route('articles.single' , ['article' => $article->slug]) }}" class="imageStyle"> <img class="card-img-top " src="/{{ $article->images['images']['321'] }}"
+                    <a href="{{ route('articles.single' , ['article' => $article->slug]) }}" class="imageStyle"> <img class="card-img-top " src="{{ $article->images['images']['321'] }}"
                                      alt="{{ $article->title }}" height="241"></a>
                     <div class="card-body">
                         <span class="writer" style="z-index: 4">نویسنده: {{ $article->writer }}</span>
