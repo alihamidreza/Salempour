@@ -36,7 +36,7 @@ class ProductController extends Controller
         SEOMeta::setDescription(str_limit($product->body));
         SEOMeta::addMeta('product:published_time', $product->created_at, 'property');
         SEOMeta::addMeta('product:section', $product->title, 'property');
-        SEOMeta::addKeyword(['key1', 'key2', 'key3']);
+        SEOMeta::addKeyword($product->tags);
 
         OpenGraph::setDescription(str_limit($product->body));
         OpenGraph::setTitle($product->title);
@@ -59,9 +59,9 @@ class ProductController extends Controller
                 'published_time' => $product->created_at,
                 'modified_time' => $product->updated_at,
                 'expiration_time' => 'datetime',
-                'author' => 'profile / array',
+                'author' => "$product->title",
                 'section' => 'string',
-                'tag' => 'string / array'
+                'tag' => "$product->tags"
             ]);
 
         $categories = Category::all();

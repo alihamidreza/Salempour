@@ -163,11 +163,9 @@
                     <div class="col-lg-5 col-xl-4">
                         <!-- Featured image -->
                         <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4" style="width: 321px !important;">
-                            <a href=""> <img class="card-img-top " src="{{ $product->images['images']['321'] }}"
+                            <a href="{{ route('products.single' , $product->slug) }}"> <img class="card-img-top " src="{{ $product->images['images']['321'] }}"
                                                                 alt="{{ $product->title }}" height="241"></a>
-                            <a>
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
+
                         </div>
 
                     </div>
@@ -183,7 +181,7 @@
                         <!-- Post data -->
 
                         <!-- بیشتر button -->
-                        <a class="btn btn-primary btn-md more">بیشتر</a>
+                        <a class="btn btn-primary btn-md more" href="{{ route('products.single' , $product->slug) }}">بیشتر</a>
                         <div class="alert alert-success col-md-8 float-md-right col-sm-8 col-xs-8" style="text-align: center !important;">برای دریافت قیمت و اطلاعات بیشتر با ما تماس بگیرید</div>
                     </div>
                     <!-- Grid column -->

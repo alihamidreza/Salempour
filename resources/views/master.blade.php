@@ -17,7 +17,8 @@
     <META NAME="geo.position" CONTENT="latitude; longitude">
     <META NAME="geo.placename" CONTENT="آبادان">
     <META NAME="geo.region" CONTENT="iran Subdivision Code">
-    {!! SEO::generate() !!}
+    <meta name="theme-color" content="#d32f2f" />
+{!! SEO::generate() !!}
     <!-- MINIFIED -->
     {!! SEO::generate(true) !!}
 

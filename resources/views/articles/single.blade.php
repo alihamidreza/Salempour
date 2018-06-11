@@ -21,6 +21,19 @@
                     <a class="container a-gradient white-text flex-center" href="{{ route('articles.index') }}" style="padding: 30px;margin-bottom: 10px;">مشاهده همه مقالات</a>
                     <a class="container purple-gradient white-text flex-center" href="{{ route('products.index') }}" style="padding: 30px;margin-bottom: 10px;margin-top: 10px;">مشاهده همه محصولات</a>
                     <div class="categoryHead bg-gray direction container" data-target="#exampleModal-article"><i class="fa fa-ellipsis-v" style="float: right;margin-top: 4px;">  </i>  دسته بندی ها</div>
+
+                    <div class="backSubCat">
+                        @foreach($categories as $category)
+
+                            <a href="{{ route('categories.show' , $category->name) }}">
+                                <div class="bg-gray direction container subCat"
+                                     data-target="#exampleModal-product"><i
+                                            class="fa fa-chevron-left"> </i> {{ $category->name }}
+                                </div>
+                            </a>
+
+                        @endforeach
+                    </div>
                 </div>
             </div>
             <!-- Grid row -->

@@ -10770,6 +10770,7 @@ module.exports = __webpack_require__(52);
 __webpack_require__(53);
 // require('./files/mdb.min');
 // require('./files/aos');
+__webpack_require__(69);
 __webpack_require__(54);
 __webpack_require__(9);
 
@@ -14727,6 +14728,18 @@ Popper.Defaults = Defaults;
 //# sourceMappingURL=popper.js.map
 
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
+
+/***/ }),
+
+/***/ 69:
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function($) {$(document).ready(function () {
+   $('.categoryHead').click(function () {
+      $('.backSubCat').fadeToggle('fast');
+   });
+});
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
 

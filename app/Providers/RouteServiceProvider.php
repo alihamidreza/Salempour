@@ -34,6 +34,10 @@ class RouteServiceProvider extends ServiceProvider
         Route::bind('slug' , function ($slug){
             return Product::whereSlug($slug)->first();
         });
+
+        Route::bind('name' , function ($name){
+            return Product::whereName($name)->first();
+        });
     }
 
     /**

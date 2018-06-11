@@ -37,7 +37,7 @@ class ArticleController extends Controller
         SEOMeta::setDescription(str_limit($article->body));
         SEOMeta::addMeta('article:published_time', $article->created_at, 'property');
         SEOMeta::addMeta('article:section', $article->title, 'property');
-        SEOMeta::addKeyword(['key1', 'key2', 'key3']);
+        SEOMeta::addKeyword([$article->tags]);
 
         OpenGraph::setDescription(str_limit($article->body));
         OpenGraph::setTitle($article->title);
@@ -60,9 +60,9 @@ class ArticleController extends Controller
                 'published_time' => $article->created_at,
                 'modified_time' => $article->updated_at,
                 'expiration_time' => 'datetime',
-                'author' => 'profile / array',
+                'author' => "$article->writer",
                 'section' => 'string',
-                'tag' => 'string / array'
+                'tag' => "$article->tags"
             ]);
 
         $article->increment('viewCount');

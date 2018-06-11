@@ -153,6 +153,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         UxWeb\SweetAlert\SweetAlertServiceProvider::class,
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
+        Roumen\Sitemap\SitemapServiceProvider::class,
         /*
          * Application Service Providers...
          */
