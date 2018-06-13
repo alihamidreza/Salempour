@@ -22,21 +22,6 @@ Route::get('/user/active/email/{token}' , 'UserController@Activation')->name('ac
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'articles'] , function (){
-    $this->get('/' , 'ArticleController@index')->name('articles.index');
-    $this->get('/{article}' , 'ArticleController@single')->name('articles.single');
-    $this->get('/searchArticle' , 'ArticleController@searchArticle')->name('articles.search');
-});
-
-Route::group(['prefix' => 'products'] , function (){
-    $this->get('/' , 'ProductController@index')->name('products.index');
-    $this->get('/{product}' , 'ProductController@single')->name('products.single');
-});
-
-Route::group(['prefix' => 'categories'] , function (){
-    $this->get('/' , 'CategoryController@index')->name('categories.index');
-    $this->get('/{category}' , 'CategoryController@show')->name('categories.show');
-});
 //SiteMap
 Route::get('/sitemap' , 'SitemapController@index');
 Route::get('/sitemap-login' , 'SitemapController@login');
@@ -73,4 +58,21 @@ Route::group(['namespace' => 'Auth'] , function (){
     $this->post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
     $this->get('password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset');
     $this->post('password/reset', 'ResetPasswordController@reset');
+});
+
+
+Route::group(['prefix' => 'articles'] , function (){
+    $this->get('/' , 'ArticleController@index')->name('articles.index');
+    $this->get('/{article}' , 'ArticleController@single')->name('articles.single');
+    $this->get('/searchArticle' , 'ArticleController@searchArticle')->name('articles.search');
+});
+
+Route::group(['prefix' => 'products'] , function (){
+    $this->get('/' , 'ProductController@index')->name('products.index');
+    $this->get('/{product}' , 'ProductController@single')->name('products.single');
+});
+
+Route::group(['prefix' => 'categories'] , function (){
+    $this->get('/' , 'CategoryController@index')->name('categories.index');
+    $this->get('/{category}' , 'CategoryController@show')->name('categories.show');
 });
