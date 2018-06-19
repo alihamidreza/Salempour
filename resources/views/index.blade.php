@@ -76,7 +76,7 @@
                                 <a href="{{ route('articles.single' , ['article' => $article->slug]) }}" class="imageStyle"> <img class="card-img-top " src="{{ $article->images['images']['321'] }}"
                                                                     alt="{{ $article->title }}" height="241"></a>
                                 <div class="card-body">
-                                    <span class="writer">نویسنده: {{ $article->writer }}</span>
+                                    <span class="writer" style="z-index: 1000">نویسنده: {{ $article->writer }}</span>
                                     <h4 class="card-title direction">{{ $article->title }}</h4>
                                     <p class="card-text direction">{{ str_limit($article->body) }}</p>
                                     <a class="btn btn-primary" href="{{ route('articles.single' , ['article' => $article->slug]) }}">مطالعه کردن</a>
@@ -106,7 +106,7 @@
                                 <a href="{{ route('articles.single' , ['article' => $article->slug]) }}" class="imageStyle"> <img class="card-img-top " src="{{ $article->images['images']['321'] }}"
                                                                     alt="{{ $article->title }}" height="241"></a>
                                 <div class="card-body">
-                                    <span class="writer">نویسنده: {{ $article->writer }}</span>
+                                    <span class="writer" style="z-index: 1000">نویسنده: {{ $article->writer }}</span>
                                     <h4 class="card-title direction">{{ $article->title }}</h4>
                                     <p class="card-text direction">{{ str_limit($article->body) }}</p>
                                     <a class="btn btn-primary" href="{{ route('articles.single' , ['article' => $article->slug]) }}">مطالعه کردن</a>
