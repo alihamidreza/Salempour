@@ -2,11 +2,10 @@
     padding: 0;
     margin: 0;
 }
-
 body {
-    font-family: IRANSansWeb;
+    font-family: IRANSans;
+    font-weight: 300;
 }
-
 #overlayR {
     background-color: #fff;
     width: 100%;
@@ -522,6 +521,9 @@ img {
 
 /* sm */
 @media (max-width: 768px) {
+    .arrow-down-site{
+        display: none;
+    }
     .categoryHead {
         display: none;
     }

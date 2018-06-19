@@ -33,7 +33,7 @@
     </div>
     <!-- Full Page Intro -->
     <div class="arrow-down animated bounce infinite" style="position: absolute;bottom: 0;left: 48.5%;cursor: pointer; ">
-        <span class="fa fa-angle-down " style="font-size:70px;color:white;"></span>
+        <span class="fa fa-angle-down arrow-down-site" style="font-size:70px;color:white;"></span>
     </div>
     </header>
 </div>

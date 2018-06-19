@@ -6,7 +6,7 @@
     </h3>
     <hr>
     @include('errors')
-    <form action="{{ route('products.update' , $product->id) }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('products.update' , $product->slug) }}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
         {{ method_field('PATCH') }}
         <div class="form-group">

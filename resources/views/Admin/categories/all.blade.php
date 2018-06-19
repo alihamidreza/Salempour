@@ -25,12 +25,12 @@
                     <td>{{ $category->name }}</td>
                     <td>
                         <div class="btn btn-group">
-                            <form action="{{ route('categories.destroy' , $category->id) }}" method="post">
+                            <form action="{{ route('categories.destroy' , $category->name) }}" method="post">
                                 {{ csrf_field() }}
                                 {{ method_field("DELETE") }}
                                 <input type="submit" class="btn btn-danger" value="حذف">
                             </form>
-                            <a href="{{ route('categories.edit' , $category->id) }}" class="btn btn-warning">ویرایش</a>
+                            <a href="{{ route('categories.edit' , $category->name) }}" class="btn btn-warning">ویرایش</a>
                         </div>
                     </td>
                 </tr>

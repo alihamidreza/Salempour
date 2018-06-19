@@ -29,12 +29,12 @@
                     <td>{{ $product->user->name }}</td>
                     <td>
                         <div class="btn btn-group">
-                            <form action="{{ route('products.destroy' , $product->id) }}" method="post">
+                            <form action="{{ route('products.destroy' , $product->slug) }}" method="post">
                                 {{ csrf_field() }}
                                 {{ method_field("DELETE") }}
                                 <input type="submit" class="btn btn-danger" value="حذف">
                             </form>
-                            <a href="{{ route('products.edit' , $product->id) }}" class="btn btn-warning">ویرایش</a>
+                            <a href="{{ route('products.edit' , $product->slug) }}" class="btn btn-warning">ویرایش</a>
                         </div>
                     </td>
                 </tr>

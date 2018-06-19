@@ -15,10 +15,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/products" data-toggle="modal" data-target="#exampleModal">محصولات</a>
+                    <a class="nav-link" href="/products" data-toggle="modal" data-target="#exampleModal">محصولات <i class="fa fa-angle-down"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/articles" data-toggle="modal" data-target="#exampleModal-article">مقالات</a>
+                    <a class="nav-link" href="/articles" data-toggle="modal" data-target="#exampleModal-article">مقالات <i class="fa fa-angle-down"></i></a>
 
                 </li>
                 @if(! auth()->check())

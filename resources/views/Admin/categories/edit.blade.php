@@ -6,7 +6,7 @@
     </h3>
     <hr>
     @include('errors')
-    <form action="{{ route('categories.update' , $category->id) }}" method="post">
+    <form action="{{ route('categories.update' , $category->name) }}" method="post">
         {{ csrf_field() }}
         {{ method_field('PATCH') }}
         <div class="form-group">
