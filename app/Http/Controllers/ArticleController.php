@@ -28,18 +28,18 @@ class ArticleController extends Controller
     public function single(Article $article)
     {
         SEO::setTitle($article->title);
-        SEO::setDescription(str_limit($article->body));
+        SEO::setDescription(strip_tags(str_limit($article->body)));
         SEO::opengraph()->setUrl("https://pishgamcomposite.ir/articles/{$article->slug}");
         SEO::setCanonical("https://pishgamcomposite.ir/articles/{$article->slug}");
         SEO::opengraph()->addProperty('type', 'articles');
         SEO::twitter()->setSite('@pishgamcomposte');
         SEOMeta::setTitle($article->title);
-        SEOMeta::setDescription(str_limit($article->body));
+        SEOMeta::setDescription(strip_tags(str_limit($article->body)));
         SEOMeta::addMeta('article:published_time', $article->created_at, 'property');
         SEOMeta::addMeta('article:section', $article->title, 'property');
         SEOMeta::addKeyword([$article->tags]);
 
-        OpenGraph::setDescription(str_limit($article->body));
+        OpenGraph::setDescription(strip_tags(str_limit($article->body)));
         OpenGraph::setTitle($article->title);
         OpenGraph::setUrl("https://pishgamcomposite.ir/articles/{$article->slug}");
         OpenGraph::addProperty('type', 'article');
@@ -54,7 +54,7 @@ class ArticleController extends Controller
         // Namespace URI: http://ogp.me/ns/article#
         // article
         OpenGraph::setTitle($article->title)
-            ->setDescription(str_limit($article->body))
+            ->setDescription(strip_tags(str_limit($article->body)))
             ->setType('article')
             ->setArticle([
                 'published_time' => $article->created_at,

@@ -27,18 +27,18 @@ class ProductController extends Controller
     public function single(Product $product)
     {
         SEO::setTitle($product->title);
-        SEO::setDescription(str_limit($product->body));
+        SEO::setDescription(strip_tags(str_limit($product->body)));
         SEO::opengraph()->setUrl("https://pishgamcomposite.ir/products/{$product->slug}");
         SEO::setCanonical("https://pishgamcomposite.ir/products/{$product->slug}");
         SEO::opengraph()->addProperty('type', 'products');
         SEO::twitter()->setSite('@pishgamcomposte');
         SEOMeta::setTitle($product->title);
-        SEOMeta::setDescription(str_limit($product->body));
+        SEOMeta::setDescription(strip_tags(str_limit($product->body)));
         SEOMeta::addMeta('product:published_time', $product->created_at, 'property');
         SEOMeta::addMeta('product:section', $product->title, 'property');
         SEOMeta::addKeyword($product->tags);
 
-        OpenGraph::setDescription(str_limit($product->body));
+        OpenGraph::setDescription(strip_tags(str_limit($product->body)));
         OpenGraph::setTitle($product->title);
         OpenGraph::setUrl("https://pishgamcomposite.ir/products/{$product->slug}");
         OpenGraph::addProperty('type', 'product');
@@ -53,7 +53,7 @@ class ProductController extends Controller
         // Namespace URI: http://ogp.me/ns/product#
         // product
         OpenGraph::setTitle($product->title)
-            ->setDescription(str_limit($product->body))
+            ->setDescription(strip_tags(str_limit($product->body)))
             ->setType('product')
             ->setArticle([
                 'published_time' => $product->created_at,

@@ -13,15 +13,15 @@
         }
     </style>
     <!-- Section: Blog v.4 -->
-
+    <style>
+        body {
+            background-color: #f5f4f4;
+        }
+    </style>
     <section class="my-5 container" style="padding: 0">
         <br><br>
-        <div class="col-md-3" style="float: left !important;">
+        <div class="col-md-3" style="float: left;">
             <div class="container">
-                <a class="container a-gradient white-text flex-center" href="{{ route('articles.index') }}"
-                   style="padding: 30px;margin-bottom: 10px;">مشاهده همه مقالات</a>
-                <a class="container purple-gradient white-text flex-center" href="{{ route('products.index') }}"
-                   style="padding: 30px;margin-bottom: 10px;margin-top: 10px;">مشاهده همه محصولات</a>
                 <div class="categoryHead bg-gray direction container" data-target="#exampleModal-product"><i
                             class="fa fa-ellipsis-v" style="float: right;margin-top: 4px;"> </i> دسته بندی ها
                 </div>
@@ -32,7 +32,7 @@
                         <a href="{{ route('categories.show' , $category->name) }}">
                             <div class="bg-gray direction container subCat"
                                  data-target="#exampleModal-product"><i
-                                        class="fa fa-chevron-left"> </i> {{ $category->name }}
+                                        class="fa fa-chevron-left ml-2"> </i> {{ $category->name }}
                             </div>
                         </a>
 
@@ -42,48 +42,17 @@
             </div>
         </div>
         <!-- Grid row -->
-        <div class="direction col-md-9 col-xs-12 col-sm-12 singleContent">
-
-            <!-- Grid column -->
-            <div class="container singleContent">
-
-                <!-- Card -->
-                <div class="card card-cascade wider reverse" style="box-shadow: none">
-                    <!-- Card image -->
-                    <div class="view">
-                        <img class="card-img-top img-fluid" src="/{{ $product->images['images']['898'] }}"
-                             alt="{{ $product->title }}">
-                        <div class="mask pattern-2 flex-center waves-effect waves-light">
-                        </div>
-                    </div>
-                    <!-- Card content -->
-                    <div class="card-body card-body-cascade text-center bg-gray">
-
-                        <!-- Title -->
-                        <h2 class="font-weight-bold"><a>{{ $product->title }}</a></h2>
-                        <!-- Data -->
-                        <!-- Social shares -->
-                        <div class="social-counters">
-                            <a class="btn btn-warning"> <i class="fa fa-share-alt"></i> اشتراک گذاری </a>
-                            <div class="alert alert-success">برای دریافت اطلاعات کاملتر و خریداری با ما تماس بگیرید
-                            </div>
-                        </div>
-                        <!-- Social shares -->
-
-                    </div>
-                    <!-- Card content -->
+        <div class="float-right col-md-9 col-sm-12">
+            <div class="titlebar">
+                <div class="title col-md-9" align="right">
+                    <h2 class="sm-center">{{ $product->title }}</h2>
+                </div>
+                <div class="sm-center"><a href="#" class="btn btn-sm btn-info"> اشتراک گذاری<i
+                                class="fa fa-share-alt mr-2" style="vertical-align: middle"></i> </a></div>
+                <div class="mt-5">
 
                 </div>
-                <!-- Card -->
-
-                <!-- Excerpt -->
-                <div class="mt-5 description">
-                    {{ $product->body }}
-                </div>
-
             </div>
-            <!-- Grid column -->
-
         </div>
         <!-- Grid row -->
 

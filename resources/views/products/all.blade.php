@@ -14,15 +14,14 @@
 <section class="my-5 allPageSection">
     <br><br>
 
-    <div class="row">
+    <div class="container">
         <div class="container">
-            <div class="container">
-                <input type="search" class="search col-md-10 col-xs-9" placeholder="محصول مورد نظر خود را جستوجو کنید...">
-            </div>
-
-            <div class="container">
+            <form action="{{ route('articles.search') }}" method="get">
+                <div class="container">
+                    <input type="search" class="search col-md-10 col-xs-9" placeholder="مقاله مورد نظر خود را جستوجو کنید..." name="search">
+                </div>
                 <button type="submit" class="btnSearch col-md-2 col-xs-3">جستوجو</button>
-            </div>
+            </form>
         </div>
     </div>
     <br>
@@ -44,7 +43,7 @@
                     <div class="card-body">
                         <span class="writer">نویسنده: {{ $product->writer }}</span>
                         <h4 class="card-title direction">{{ $product->title }}</h4>
-                        <p class="card-text direction">{{ str_limit($product->body) }}</p>
+                        <p class="card-text direction">{{ strip_tags(str_limit($product->body , 300)) }}</p>
                         <a class="btn btn-primary" href="{{ route('products.single' , $product->slug) }}">مشاهده محصول</a>
                     </div>
                 </div>

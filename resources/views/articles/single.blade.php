@@ -45,12 +45,7 @@
                     <!-- Card -->
                     <div class="card card-cascade wider reverse" style="box-shadow: none">
                         <!-- Card image -->
-                        <div class="view">
-                            <img class="card-img-top img-fluid" src="/{{ $article->images['images']['898'] }}"
-                                 alt="{{ $article->title }}">
-                            <div class="mask pattern-2 flex-center waves-effect waves-light">
-                            </div>
-                        </div>
+
                         <!-- Card content -->
                         <div class="card-body card-body-cascade text-center bg-gray">
 

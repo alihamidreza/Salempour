@@ -28,8 +28,15 @@
         </main>
     </div>
 </div>
+<script src="/Admin/js/jquery.min.js"></script>
 <script src="/Admin/js/panel.js"></script>
-<script src="/Admin/js/bootstrap-select.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#dropdownMenuLink').click(function () {
+            $('.menudrop').toggleClass('d-block');
+        });
+    });
+</script>
 @yield('scripts')
 </body>
 </html>

@@ -49,3 +49,14 @@
         </div>
     </form>
 @endsection
+@section('scripts')
+
+    {{--<script src="/Admin/js/ckeditor.js"></script>--}}
+    <script src="//cdn.ckeditor.com/4.9.2/full/ckeditor.js"></script>
+    <script>
+        $(document).ready(function () {
+            CKEDITOR.replace( 'body' );
+        })
+    </script>
+
+@endsection
