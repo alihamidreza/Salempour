@@ -1,3 +1,8 @@
+<div class="container position-fixed" id="scrolltop" style="bottom:30px;right: -60px;cursor: pointer;font-size: 30px;height: 60px;width: 60px;text-align: center;line-height: 60px;background-color: #d32f2f;border-radius: 50px;z-index: 10000;">
+    <span class="">
+        <i class="white-text fa fa-angle-up"></i>
+    </span>
+</div>
 <footer class="page-footer font-small unique-color-dark pt-0 loginmenu footerPosition">
 
     <div style="background-color: #d32f2f" >

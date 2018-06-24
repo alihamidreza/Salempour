@@ -1,3 +1,4 @@
+{{--<div class="d-none">{{ $categories = \App\Category::all() }}</div>--}}
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
     <div class="container">
         <a class="navbar-brand" href="/">

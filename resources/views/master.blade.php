@@ -13,13 +13,13 @@
     <meta name="author" content="Pishgam Composite">
     <meta name="copyright" content="Pishgam Composite">
     <meta name="doc-class" content="Living Document">
-    <link rel="SHORTCUT ICON" href="images/logo.png">
+    <link rel="SHORTCUT ICON" href="/images/logo.png">
     <META NAME="geo.position" CONTENT="latitude; longitude">
     <META NAME="geo.placename" CONTENT="آبادان">
     <META NAME="geo.region" CONTENT="iran Subdivision Code">
-    <meta name="theme-color" content="#d32f2f" />
+    <meta name="theme-color" content="#d32f2f"/>
 {!! SEO::generate() !!}
-    <!-- MINIFIED -->
+<!-- MINIFIED -->
     {!! SEO::generate(true) !!}
 
     <link rel="alternate" href="http://www.pishgamcomposite.ir" hreflang="fa-ir">
@@ -61,6 +61,20 @@
         $('.animated-icon1,.animated-icon3,.animated-icon4').click(function () {
             $(this).toggleClass('open');
         });
+        $(document).scroll(function() {
+            var y = $(this).scrollTop();
+            if (y > 100) {
+                $('#scrolltop').animate({right:'30px'} , 150);
+            }
+            else{
+                $('#scrolltop').animate({right:'-60px'} , 150);
+            }
+        });
+        $('#scrolltop').click(function () {
+            $("html, body").animate({scrollTop: 0}, 600);
+            return false;
+        });
+
     });
 </script>
 @yield('script')

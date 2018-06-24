@@ -15,14 +15,14 @@
     <br><br>
 
     <div class="container">
-        <div class="container">
-            <form action="{{ route('articles.search') }}" method="get">
-                <div class="container">
-                    <input type="search" class="search col-md-10 col-xs-9" placeholder="مقاله مورد نظر خود را جستوجو کنید..." name="search">
-                </div>
-                <button type="submit" class="btnSearch col-md-2 col-xs-3">جستوجو</button>
-            </form>
-        </div>
+        {{--<div class="container">--}}
+            {{--<form action="{{ route('articles.search') }}" method="get">--}}
+                {{--<div class="container">--}}
+                    {{--<input type="search" class="search col-md-10 col-xs-9" placeholder="محصول مورد نظر خود را جستوجو کنید..." name="search">--}}
+                {{--</div>--}}
+                {{--<button type="submit" class="btnSearch col-md-2 col-xs-3"><i class="fa fa-search"></i></button>--}}
+            {{--</form>--}}
+        {{--</div>--}}
     </div>
     <br>
     <div class="row flex-center">

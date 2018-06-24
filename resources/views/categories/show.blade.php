@@ -46,7 +46,7 @@
                                 <div class="card-body">
                                     <span class="writer" style="z-index: 4">نویسنده: {{ $article->writer }}</span>
                                     <h4 class="card-title direction">{{ $article->title }}</h4>
-                                    <p class="card-text direction">{{ str_limit($article->body) }}</p>
+                                    <p class="card-text direction">{{ strip_tags(str_limit($article->body , 150)) }}</p>
                                     <a class="btn btn-primary"
                                        href="{{ route('articles.single' , ['article' => $article->slug]) }}">مطالعه
                                         کردن</a>
@@ -89,7 +89,7 @@
                                          alt="{{ $product->title }}" height="241"></a>
                                 <div class="card-body">
                                     <h4 class="card-title direction">{{ $product->title }}</h4>
-                                    <p class="card-text direction">{{ str_limit($product->body) }}</p>
+                                    <p class="card-text direction">{{ strip_tags(str_limit($product->body , 150)) }}</p>
                                     <a class="btn btn-primary"
                                        href="{{ route('products.single' , ['product' => $product->slug]) }}">مطالعه
                                         کردن</a>

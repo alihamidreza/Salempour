@@ -18,5 +18,14 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+
+#    #Force non-www:
+#    RewriteEngine on
+#    RewriteCond %{HTTP_HOST} ^www\.pishgamcomposite\.ir [NC]
+#    RewriteRule ^(.*)$ http://example.com/$1 [L,R=301]
+
+#  RewriteEngine On
+#RewriteCond %{SERVER_PORT} 80
+#RewriteRule ^(.*)$ https://pishgamcomposite.ir/$1 [R=301,L]
 </IfModule>
 

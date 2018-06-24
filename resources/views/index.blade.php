@@ -337,7 +337,7 @@
         $(document).ready(function () {
             $('#scrolldown').click(function(){
                 $('body,html').animate({ scrollTop: $('#ifscrolled').height()} , 800);
-            })
+            });
         })
     </script>
     @if (Session::has('sweet_alert.alert'))

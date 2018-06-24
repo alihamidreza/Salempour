@@ -585,3 +585,74 @@ img {
     padding: 15px;
     color: #444444;
 }
+.border{
+    border: 1px solid rgba(0,0,0,.1);
+}
+.bordertn{
+    border-top: none !important;
+}
+html {
+    font-size: 1rem;
+}
+
+@include media-breakpoint-up(sm) {
+    html {
+        font-size: 1.2rem;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    html {
+        font-size: 1.4rem;
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    html {
+        font-size: 1.6rem;
+    }
+}
+.article-body p{
+    font-family: IRANSans !important;
+}
+.article-body p span{
+    font-family: IRANSans !important;
+}
+.article-body span{
+    font-family: IRANSans !important;
+}
+.comment .card{
+    box-shadow: none !important;
+}
+.znone{
+    z-index: 0 !important;
+}
+
+/* Rating Star Widgets Style */
+.rating-stars ul {
+    list-style-type:none;
+    padding:0;
+
+    -moz-user-select:none;
+    -webkit-user-select:none;
+}
+.rating-stars ul > li.star {
+    display:inline-block;
+
+}
+
+/* Idle State of the stars */
+.rating-stars ul > li.star > i.fa {
+    font-size:2.5em; /* Change the size of the stars */
+    color:#ccc; /* Color on idle state */
+}
+
+/* Hover state of the stars */
+.rating-stars ul > li.star.hover > i.fa {
+    color:#FFCC36;
+}
+
+/* Selected state of the stars */
+.rating-stars ul > li.star.selected > i.fa {
+    color:#FF912C;
+}

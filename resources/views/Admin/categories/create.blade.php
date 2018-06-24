@@ -2,7 +2,7 @@
 
 @section('content')
     <h3>
-        ثبت مقاله
+        ثبت دسته بندی
     </h3>
     <hr>
     @include('errors')

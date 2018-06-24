@@ -11,7 +11,6 @@
 |
 */
 
-
 Route::get('/', 'HomeController@index');
 Route::get('emailSend' , function (){
     alert()->success('ایمیل فعال سازی برای ایمیل شما ارسال شد' , 'ایمیل فعال سازی');
