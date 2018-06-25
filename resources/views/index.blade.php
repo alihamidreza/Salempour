@@ -25,7 +25,7 @@
                                     data-wow-delay="0.3s" style="letter-spacing: 0 !important;">پیشگام در تولید کامپوزیت
                                     وانت و قایق در خوزستان</h5>
                                 <div class="wow fadeInDown" data-wow-delay="0.3s">
-                                    <a class="btn btn-light-blue btn-lg animated bounceInUp"
+                                    <a class="btn btn-light-blue btn-lg animated bounceInUp" id="requestProduct"
                                        style="background-color: #1c2331 !important;">سفارش محصول</a>
                                 </div>
                             </div>
@@ -337,6 +337,16 @@
         $(document).ready(function () {
             $('#scrolldown').click(function(){
                 $('body,html').animate({ scrollTop: $('#ifscrolled').height()} , 800);
+            });
+        });
+        $('#requestProduct').click(function () {
+            swal({
+                text: "این بخش در نسخه های بعدی اضافه میشود.",
+                title: "موجود نمی باشد",
+                confirmButtonColor: "#1c2331",
+                icon: "info",
+                button: "خیلی خوب!",
+                // more options
             });
         })
     </script>

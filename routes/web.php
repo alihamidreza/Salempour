@@ -77,3 +77,4 @@ Route::group(['prefix' => 'categories'] , function (){
 });
 
 Route::post('/comment' , 'HomeController@comment')->name('send.comment');
+Route::post('/answercomment' , 'HomeController@answercomment')->name('answer.comment');

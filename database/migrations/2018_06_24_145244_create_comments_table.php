@@ -18,7 +18,7 @@ class CreateCommentsTable extends Migration
             $table->string('email');
             $table->string('name');
             $table->text('comment');
-            $table->integer('point');
+            $table->integer('point')->default(0);
             $table->integer('parent_id')->unsigned();
             $table->boolean('approved')->default(0);
             $table->integer('commentable_id')->unsigned();

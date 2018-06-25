@@ -67,8 +67,8 @@ class ArticleController extends Controller
 
         $article->increment('viewCount');
         $categories = Category::all();
-//        $comments = $article->cooments()->get();
-        return view('articles.single' ,  compact('article' , 'categories'));
+        $comments = $article->comments()->where('approved' , 1)->where('parent_id' , 0)->latest()->with('comments')->get();
+        return view('articles.single' ,  compact('article' , 'categories' , 'comments'));
     }
 
 }

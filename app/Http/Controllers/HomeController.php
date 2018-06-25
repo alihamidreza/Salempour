@@ -41,6 +41,7 @@ class HomeController extends Controller
                 'name' => 'required|max:30',
                 'comment' => 'required|min:5',
                 'email' => 'required',
+                'point' => 'required',
             ]);
 
             $insertData = Comment::create($request->all());
@@ -58,6 +59,37 @@ class HomeController extends Controller
                     'error' => true,
                     'title' => 'عملیات ناموفق!',
                     'text' => 'نظر شما ثبت نشد . لطفا دوباره تلاس کنید',
+                    'icon' => 'error',
+                    'button' => 'خیلی خوب!'
+                ]);
+            }
+        }
+    }
+
+    public function answercomment(Request $request)
+    {
+        if ($request->ajax()) {
+
+            $validatedData = $request->validate([
+                'name' => 'required|max:30',
+                'comment' => 'required|min:5',
+                'email' => 'required',
+            ]);
+             $insertData = Comment::create($request->all());
+            if ($insertData) {
+                return response()->json([
+                    'error' => false,
+                    'title' => 'عملیات موفقیت آمیز',
+                    'text' => 'با تشکر از پاسخ شما . پاسخ شما پس از تایید در سایت قرار داده میشود.',
+                    'icon' => 'success',
+                    'button' => 'خیلی خوب!'
+                ]);
+            }
+            else {
+                return response()->json([
+                    'error' => true,
+                    'title' => 'عملیات ناموفق!',
+                    'text' => 'پاسخ شما ثبت نشد . لطفا دوباره تلاش کنید',
                     'icon' => 'error',
                     'button' => 'خیلی خوب!'
                 ]);

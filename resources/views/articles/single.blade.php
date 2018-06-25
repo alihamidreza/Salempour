@@ -58,7 +58,7 @@
 
                         <div class="sm-center d-md-inline d-sm-block mr-4">
                             <span class="mr-2"><i class="ml-1 fa fa-clock-o"></i> تاریخ انتشار :<span
-                                        class="mr-2">{{ $article->created_at }}</span></span>
+                                        class="mr-2">{{ jdate($article->created_at)->format('%B %d، %Y') }}</span></span>
                         </div>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
         </div>
         <!-- Grid row -->
         {{--COMMENT SECTION--}}
-            @include('layouts.comment' , ['subject' => $article])
+            @include('layouts.comment' , ['subject' => $article , $comments])
         {{--END COMMENT SECTION--}}
     </section>
     <!-- Section: Blog v.4 -->
