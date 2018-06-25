@@ -10,39 +10,48 @@
         <!-- Rating Stars Box -->
         <div class='rating-stars text-center'>
             <ul id='stars'>
-                <li class='star' data-value='1'>
+                <li class='star' data-value='1' id="star1">
                     <i class='fa fa-star fa-fw'></i>
                 </li>
-                <li class='star' data-value='2'>
+                <li class='star' data-value='2' id="star2">
                     <i class='fa fa-star fa-fw'></i>
                 </li>
-                <li class='star' data-value='3'>
+                <li class='star' data-value='3' id="star3">
                     <i class='fa fa-star fa-fw'></i>
                 </li>
-                <li class='star' data-value='4'>
+                <li class='star' data-value='4' id="star4">
                     <i class='fa fa-star fa-fw'></i>
                 </li>
-                <li class='star' data-value='5'>
+                <li class='star' data-value='5' id="star5">
                     <i class='fa fa-star fa-fw'></i>
                 </li>
             </ul>
         </div>
 
         <div class="mt-5" id="bodyComment">
-            <form>
+            <div class="alert alert-danger" id="validate"></div>
+            <form method="post" id="sendcomment">
+                {{ csrf_field() }}
+                <input type="hidden" name="parent_id" id="parent_id" value="0">
+                <input type="hidden" name="commentable_id" id="commentable_id" value="{{ $subject->id }}">
+                <input type="hidden" name="commentable_type" id="commentable_type" value="{{ get_class($subject) }}">
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label for="email">ایمیل:</label>
-                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="ایمیل خود را وارد کنید">
-                        <small id="emailHelp" class="form-text text-muted">جواب دیدگاه شما به ایمیل شما نیز ارسال میگردد.</small>
+                        <input type="email" class="form-control font-small" id="email" aria-describedby="emailHelp"
+                               placeholder="ایمیل خود را وارد کنید">
+                        <small id="emailHelp" class="form-text text-muted">جواب دیدگاه شما به ایمیل شما نیز ارسال
+                            میگردد.
+                        </small>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="username">نام:</label>
-                        <input type="text" class="form-control" id="username" placeholder="نام خود را وارد کنید">
+                        <label for="name">نام:</label>
+                        <input type="text" class="form-control font-small" id="name" placeholder="نام خود را وارد کنید">
                     </div>
                 </div>
                 <div class="form-group">
-                    <textarea class="form-control" id="comment" name="comment" placeholder="دیدگاه خود را بنویسید" rows="6"></textarea>
+                    <textarea class="form-control font-small" id="comment" name="comment"
+                              placeholder="دیدگاه خود را بنویسید" rows="6"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary btn-sm">ارسال نظر</button>
             </form>
@@ -50,7 +59,8 @@
     </div>
     <br>
     <div class="flex-center">
-        <span class="p-3 white border flex-center font-weight-bold" style="border-bottom: none !important;border-radius: 20px 20px 0 0;width: 173px;">
+        <span class="p-3 white border flex-center font-weight-bold"
+              style="border-bottom: none !important;border-radius: 20px 20px 0 0;width: 173px;">
             نظرات کاربران
         </span>
     </div>
@@ -110,16 +120,16 @@
 
 
 @section('script')
-
+    <script src="/"></script>
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
             $('#bodyComment').hide();
             /* 1. Visualizing things on Hover - See next part for action on click */
-            $('#stars li').on('mouseover', function(){
+            $('#stars li').on('mouseover', function () {
                 var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
 
                 // Now highlight all the stars that's not after the current hovered star
-                $(this).parent().children('li.star').each(function(e){
+                $(this).parent().children('li.star').each(function (e) {
                     if (e < onStar) {
                         $(this).addClass('hover');
                     }
@@ -128,15 +138,15 @@
                     }
                 });
 
-            }).on('mouseout', function(){
-                $(this).parent().children('li.star').each(function(e){
+            }).on('mouseout', function () {
+                $(this).parent().children('li.star').each(function (e) {
                     $(this).removeClass('hover');
                 });
             });
 
 
             /* 2. Action to perform on click */
-            $('#stars li').on('click', function(){
+            $('#stars li').on('click', function () {
                 var onStar = parseInt($(this).data('value'), 10); // The star currently selected
                 var stars = $(this).parent().children('li.star');
 
@@ -160,10 +170,66 @@
                 responseMessage(msg);
 
             });
-
-
+            $('#validate').hide();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $('.star').click(function () {
+                var point = $(this).attr('data-value');
+                $('#sendcomment').submit(function (e) {
+                    e.preventDefault();
+                    var parent_id = $('#parent_id').val();
+                    var commentable_id = $('#commentable_id').val();
+                    var commentable_type = $('#commentable_type').val();
+                    var email = $('#email').val();
+                    var name = $('#name').val();
+                    var comment = $('#comment').val();
+                    if (email.length > 3 && name.length > 2 && comment.length > 5) {
+                        $('#validate').hide();
+                        $.ajax({
+                            method: 'POST',
+                            url: "{{ route('send.comment') }}",
+                            dataType: "json",
+                            data: {
+                                point: point,
+                                parent_id: parent_id,
+                                commentable_id: commentable_id,
+                                commentable_type: commentable_type,
+                                email: email,
+                                name: name,
+                                comment: comment,
+                            }
+                        }).done(function (msg) {
+                            if (msg['error'] === false) {
+                                swal({
+                                    text: msg['text'],
+                                    title: msg['title'],
+                                    icon: msg['icon'],
+                                    confirmButtonText: msg['button'],
+                                    confirmButtonColor: "#AEDEF4"
+                                });
+                                $('#bodyComment').remove();
+                            }
+                            else {
+                                swal({
+                                    text: msg['text'],
+                                    title: msg['title'],
+                                    icon: msg['icon'],
+                                    confirmButtonText: msg['button'],
+                                    confirmButtonColor: "#AEDEF4"
+                                });
+                            }
+                        });
+                    }
+                    else {
+                        $('#validate').show();
+                        $('#validate').text('لطفا اطلاعات را کامل وارد کنید!');
+                    }
+                })
+            })
         });
-
 
         function responseMessage(msg) {
             $('.success-box').fadeIn(200);
@@ -175,5 +241,4 @@
         })
 
     </script>
-
 @endsection

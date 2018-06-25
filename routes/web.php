@@ -75,3 +75,5 @@ Route::group(['prefix' => 'categories'] , function (){
     $this->get('/' , 'CategoryController@index')->name('categories.index');
     $this->get('/{category}' , 'CategoryController@show')->name('categories.show');
 });
+
+Route::post('/comment' , 'HomeController@comment')->name('send.comment');

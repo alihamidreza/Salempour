@@ -67,6 +67,7 @@ class ArticleController extends Controller
 
         $article->increment('viewCount');
         $categories = Category::all();
+//        $comments = $article->cooments()->get();
         return view('articles.single' ,  compact('article' , 'categories'));
     }
 

@@ -25,9 +25,9 @@
             <tbody>
             @foreach($articles as $article)
                 <tr>
-                    <td><a href="">{{ $article->title }}</a></td>
+                    <td><a href="{{ route('articles.single' , $article->title) }}">{{ $article->title }}</a></td>
                     <td>{{ $article->writer }}</td>
-                    <td>{{ $article->body }}</td>
+                    <td>{{ str_limit($article->body) }}</td>
                     <td>{{ $article->user->name }}</td>
                     <td>
                         <div class="btn btn-group">

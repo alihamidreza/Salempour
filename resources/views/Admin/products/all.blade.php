@@ -24,8 +24,8 @@
             <tbody>
             @foreach($products as $product)
                 <tr>
-                    <td><a href="">{{ $product->title }}</a></td>
-                    <td>{{ $product->body }}</td>
+                    <td><a href="/{{ route('products.single' , $product->title) }}">{{ $product->title }}</a></td>
+                    <td>{{ str_limit($product->body) }}</td>
                     <td>{{ $product->user->name }}</td>
                     <td>
                         <div class="btn btn-group">

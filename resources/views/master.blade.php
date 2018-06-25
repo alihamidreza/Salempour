@@ -18,6 +18,7 @@
     <META NAME="geo.placename" CONTENT="آبادان">
     <META NAME="geo.region" CONTENT="iran Subdivision Code">
     <meta name="theme-color" content="#d32f2f"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 {!! SEO::generate() !!}
 <!-- MINIFIED -->
     {!! SEO::generate(true) !!}
@@ -74,7 +75,6 @@
             $("html, body").animate({scrollTop: 0}, 600);
             return false;
         });
-
     });
 </script>
 @yield('script')

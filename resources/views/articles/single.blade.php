@@ -78,7 +78,7 @@
         </div>
         <!-- Grid row -->
         {{--COMMENT SECTION--}}
-            @include('layouts.comment')
+            @include('layouts.comment' , ['subject' => $article])
         {{--END COMMENT SECTION--}}
     </section>
     <!-- Section: Blog v.4 -->
