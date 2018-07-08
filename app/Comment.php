@@ -26,6 +26,6 @@ class Comment extends Model
 
     public function comments()
     {
-        return $this->hasMany(Comment::class , 'parent_id' , 'id')->where('approved' , 1)->latest();
+        return $this->hasMany(Comment::class , 'parent_id' , 'id');
     }
 }

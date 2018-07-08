@@ -9,7 +9,8 @@
             <div class="dropdown-menu menudrop" aria-labelledby="dropdownMenuLink">
                 <a class="dropdown-item" href="/panel">صفحه اصلی</a>
                 <a class="dropdown-item" href="/panel/users">کاربران</a>
-                <a class="dropdown-item" href="/panel/comments">نظرات</a>
+                <a class="dropdown-item" href="/panel/comments/unApproved"><span class="badge badge-dark badge-pill">{{ $unApproved }}</span> نظرات تایید شده</a>
+                <a class="dropdown-item" href="/panel/comments"><span class="badge badge-dark badge-pill">{{ $comments }}</span> نظرات</a>
                 <a class="dropdown-item" href="/panel/categories">دسته بندی ها</a>
                 <a class="dropdown-item" href="/panel/products">محصولات</a>
                 <a class="dropdown-item" href="/panel/articles">مقالات</a>

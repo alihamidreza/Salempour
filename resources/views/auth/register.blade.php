@@ -14,7 +14,7 @@
     <br>
     <br>
     <br>
-    <div class="row justify-content-center">
+    {{-- <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header direction">{{ __('ثبت نام') }}</div>
@@ -84,7 +84,8 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
+    <div class="alert alert-info flex-center" style="text-align:center;">در حال حاضر امکان ثبت نام وجود ندارد . در بروزرسانی بعدی این مورد اصلاح میشود</div>
     <br>
     <br>
     <br>

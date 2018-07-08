@@ -97,7 +97,7 @@
                                            href="{{ route('articles.single' , ['article' => $article->slug]) }}">مطالعه
                                             کردن</a>
                                         <span class="view-comment">{{ $article->viewCount }} <i class="fa fa-eye"></i> </span>
-                                        <span class="view-comment2">0 <i class="fa fa-commenting"></i> </span>
+                                    <span class="view-comment2">  {{ count($article->comments) }}  <i class="fa fa-commenting"></i> </span>
                                     </div>
                                 </div>
                             </div>
@@ -170,16 +170,19 @@
 
                     <!-- Post title -->
                     <h3 class="font-weight-bold mb-3 direction"><strong>{{ $product->title }}</strong></h3>
+                    <div class=" float-left p-1 pr-3 pl-3 ml-2" style="background-color: #f1f1f1;text-align: center">
+                        <i class="fa fa-commenting" style="color: #888"></i>
+                        <span>{{ count($product->comments) }}</span>
+                    </div>
                     <!-- Excerpt -->
-                    <p class="dark-grey-text direction">{{ strip_tags(str_limit($product->body , 450)) }}</p>
+                    <p class="dark-grey-text direction mt-3">{{ strip_tags(str_limit($product->body , 450)) }}</p>
                     <!-- Post data -->
 
                     <!-- بیشتر button -->
                     <a class="btn btn-primary btn-md more"
-                       href="{{ route('products.single' , $product->slug) }}">بیشتر</a>
-                    <div class="alert alert-success col-md-8 float-md-right col-sm-8 col-xs-8 mt-5"
-                         style="text-align: center !important;">برای دریافت قیمت و اطلاعات بیشتر با ما تماس بگیرید
-                    </div>
+                       href="{{ route('products.single' , $product->slug) }}">بیشتر
+                    </a>
+                    
                 </div>
                 <!-- Grid column -->
 

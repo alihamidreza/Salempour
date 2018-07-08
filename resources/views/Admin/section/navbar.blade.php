@@ -15,10 +15,19 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/panel/comment">
+                <a class="nav-link" href="/panel/comments">
                     <span data-feather="shopping-cart" class="fa fa-comments"></span>
                     نظرات
+                    <span class="badge badge-success badge-pill">{{ $comments}}</span>
                 </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/panel/comments/unApproved">
+                    <span data-feather="shopping-cart" class="fa fa-comments"></span>
+                     نظرات تایید نشده
+                     <span class="badge badge-danger badge-pill">{{ $unApproved }}</span>
+                </a>
+                
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/panel/categories">

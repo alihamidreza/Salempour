@@ -65,6 +65,16 @@ class ProductController extends Controller
             ]);
 
         $categories = Category::all();
-        return view('products.single' ,  compact('product' , 'categories'));
+        $comments = $product->comments()->where('approved' , 1)->where('parent_id' , 0)->latest()->with(['comments' => function($query){
+            $query->where('approved' , 1)->latest();
+        }])->get();
+        return view('products.single' ,  compact('product' , 'categories' , 'comments'));
+    }
+
+    public function search(Request $request)
+    {
+        $products = Product::search($request->all())->latest()->get();
+        $categories = Category::all();
+        return view('products.search' , compact('products' , 'categories'));
     }
 }

@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    protected $fillable = ['slug' , 'title' , 'body' , 'user_id' , 'writer' , 'tags' , 'images'];
+    protected $fillable = ['slug', 'title', 'body', 'user_id', 'writer', 'tags', 'images'];
 
     protected $casts = [
-      'images' => 'array',
+        'images' => 'array',
     ];
 
     use Sluggable;
@@ -50,6 +50,18 @@ class Article extends Model
      */
     public function comments()
     {
-        return $this->morphMany('App\Comment', 'commentable');
+        return $this->morphMany(Comment::class, 'commentable')->where('approved', 1);
+    }
+
+    public function path()
+    {
+        return "articles/" . $this->slug;
+    }
+
+    public static function scopeSearch($query, $search)
+    {
+        if (isset($search) && !empty($search)) {
+            $query->where('title' , 'LIKE' , '%' . $search['search'] . '%');
+        }
     }
 }

@@ -96,4 +96,14 @@ class HomeController extends Controller
             }
         }
     }
+
+    public function search(Request $request)
+    {
+        if (isset($request) && !empty($request)) {
+            $articles = Article::where('title' , 'LIKE' , '%' . $request['search'] . '%')->latest()->get();
+            $products = Product::where('title' , 'LIKE' , '%' . $request['search'] . '%')->latest()->get();
+        }
+        $categories = Category::all();
+        return view('search' , compact('articles' , 'categories' , 'products'));
+    }
 }

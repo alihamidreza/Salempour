@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Article;
 use App\Category;
 use SEO;
@@ -67,8 +68,17 @@ class ArticleController extends Controller
 
         $article->increment('viewCount');
         $categories = Category::all();
-        $comments = $article->comments()->where('approved' , 1)->where('parent_id' , 0)->latest()->with('comments')->get();
+        $comments = $article->comments()->where('approved' , 1)->where('parent_id' , 0)->latest()->with(['comments' => function($query){
+            $query->where('approved' , 1)->latest();
+        }])->get();
         return view('articles.single' ,  compact('article' , 'categories' , 'comments'));
+    }
+
+    public function search(Request $request)
+    {
+        $articles = Article::search($request->all())->latest()->get();
+        $categories = Category::all();
+        return view('articles.search' , compact('articles' , 'categories'));
     }
 
 }

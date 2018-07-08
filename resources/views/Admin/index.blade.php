@@ -6,41 +6,48 @@
     <hr>
     <br>
     <div class="row">
-        <div class="container col-md-6" style="margin-top: 10px;margin-bottom: 10px;">
-            <div class="container">
-            <a class="row bt btn-danger" href="/panel/products" style="padding: 40px;font-size: 25px;text-align: center !important;border-radius: 5px;box-shadow: 0 0 20px #ccc ;">
-                <span class="" style="margin-left: 32% !important;">محصولات</span>
+        
+            
+            <a class="row btn btn-lg m-2 btn-info" href="/panel/products" >
+                محصولات
             </a>
-            </div>
-        </div>
-        <div class="container col-md-6" style="margin-top: 10px;margin-bottom: 10px;">
-            <div class="container">
-                <a class="row bt btn-primary" href="/panel/articles" style="padding: 40px;font-size: 25px;text-align: center !important;border-radius: 5px;box-shadow: 0 0 20px #ccc ;">
-                    <span class="" style="margin-left: 32% !important;">مقالات</span>
+            
+        
+        
+            
+                <a class="row btn btn-lg m-2 btn-primary" href="/panel/articles" >
+                    مقالات
                 </a>
-            </div>
-        </div>
-        <div class="container col-md-6" style="margin-top: 10px;margin-bottom: 10px;">
-            <div class="container">
-                <a class="row bt btn-warning" href="panel/categories" style="padding: 40px;font-size: 25px;text-align: center !important;border-radius: 5px;box-shadow: 0 0 20px #ccc ;">
-                    <span class="" style="margin-left: 32% !important;">دسته بندی ها</span>
+            
+        
+        
+            
+                <a class="row btn btn-lg m-2 btn-warning" href="panel/categories" >
+                    دسته بندی ها
                 </a>
-            </div>
-        </div>
-        <div class="container col-md-6" style="margin-top: 10px;margin-bottom: 10px;">
-            <div class="container">
-                <a class="row bt btn-success" href="/panel/comments" style="padding: 40px;font-size: 25px;text-align: center !important;border-radius: 5px;box-shadow: 0 0 20px #ccc ;">
-                    <span class="" style="margin-left: 32% !important;">نظرات</span>
+            
+        
+        
+            
+                <a class="row btn btn-lg m-2 btn-success" href="/panel/comments" >
+                    نظرات
+                <span class="badge badge-light badge-pill">{{ $comments }}</span>
                 </a>
-            </div>
-        </div>
-        <div class="container col-md-6" style="margin-top: 10px;margin-bottom: 10px;">
-            <div class="container">
-                <a class="row bt btn-dark" href="/panel/users" style="padding: 40px;font-size: 25px;text-align: center !important;border-radius: 5px;box-shadow: 0 0 20px #ccc ;">
-                    <span class="" style="margin-left: 32% !important;">کاربران</span>
+            
+            
+                <a class="row btn btn-lg m-2 btn-danger" href="/panel/comments/unApproved" >
+                    نظرات تایید نشده
+                    <span class="badge badge-light badge-pill">{{ $unApproved }}</span>
                 </a>
-            </div>
-        </div>
+            
+        
+        
+            
+                <a class="row btn btn-lg m-2 btn-dark" href="/panel/users" >
+                    کاربران
+                </a>
+            
+    
     </div>
 
 @endsection

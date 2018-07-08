@@ -68,12 +68,12 @@
                     <div class="view">
                         <img src="/{{ $article->images['images']['898'] }}" class="img-fluid"
                              alt="{{ $article->title }}">
-                        <div class="mask pattern-2 flex-center waves-effect waves-light"></div>
+                        <div class="mask flex-center waves-effect waves-light"></div>
                     </div>
                 </div>
             </div>
-            <div class="body direction p-3 line-heght-4 white border bordertn article-body" style="line-height: 34px;">
-                {!! $article->body !!}
+            <div class="body direction p-3 line-heght-4 white border bordertn article-body p" style="line-height: 34px;">
+                <p>{!! $article->body !!}</p>
             </div>
         </div>
         <!-- Grid row -->

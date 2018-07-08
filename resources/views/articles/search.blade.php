@@ -17,19 +17,18 @@
     <div class="row">
         <div class="container">
             <div class="container">
-                <input type="search" class="search col-md-10 col-xs-9" placeholder="مقاله مورد نظر خود را جستوجو کنید...">
-            </div>
-
-            <div class="container">
-                <button type="submit" class="btnSearch col-md-2 col-xs-3">جستوجو</button>
+                <form action="{{ route('articles.search') }}">
+                    <div class="container">
+                        <input type="test" class="search col-md-10 col-xs-9"
+                               placeholder="مقاله مورد نظر خود را جستوجو کنید..." name="search">
+                    </div>
+                    <button type="submit" class="btnSearch col-md-2 col-xs-3"><i class="fa fa-search"></i></button>
+                </form>
             </div>
         </div>
     </div>
     <br>
-    <br>
-    <div class="row flex-center">
-        {{ $articles->render() }}
-    </div>
+
     @foreach($articles as $article)
         <div class="container" style="z-index: 1">
             <div class="col-md-6 col-sm-6 col-xs-12 col-lg-4" style="margin-top:15px;">
@@ -56,8 +55,6 @@
 
     @endforeach
     <br>
-    <div class="container flex-center" style="position: relative; top: 46px;">
-        {{ $articles->render() }}
-    </div>
+
 </section>
 @endsection

@@ -61,18 +61,18 @@
                 <div class="img">
                     <div class="view">
                         <img src="/{{ $product->images['images']['898'] }}" class="img-fluid" alt="{{ $product->title }}">
-                        <div class="mask pattern-2 flex-center waves-effect waves-light"></div>
+                        <div class="mask flex-center waves-effect waves-light"></div>
                     </div>
                 </div>
             </div>
-            <div class="body direction p-3 line-heght-4 white border bordertn article-body" style="line-height: 34px;">
+            <div class="body direction p-3 line-heght-4 white border bordertn article-body p" style="line-height: 34px;">
                 {!! $product->body !!}
             </div>
         </div>
         <!-- Grid row -->
 
         {{--Comment section--}}
-        @include('layouts.comment')
+        @include('layouts.comment' , ['subject' => $product , $comments])
         {{--End Comment section--}}
     </section>
     <!-- Section: Blog v.4 -->

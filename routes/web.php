@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Route::get('/s' , 'ArticleController@search');
 
 Route::get('/', 'HomeController@index');
 Route::get('emailSend' , function (){
@@ -36,10 +37,12 @@ Route::get('/sitemap-categories' , 'SitemapController@categories');
 //Admin panel Routes
 Route::group(['namespace' => 'Admin' , 'prefix' => 'panel' , 'middleware' => 'admin'] , function (){
    $this->get('/' , 'AdminController@index');
+   $this->get('/comments/unApproved' , 'CommentController@unApproved');
    $this->resource('/articles' , 'ArticleController');
    $this->resource('/products' , 'ProductController');
    $this->resource('/categories' , 'CategoryController');
    $this->resource('/users' , 'UserController');
+   $this->resource('/comments' , 'CommentController');
 });
 
 Route::group(['namespace' => 'Auth'] , function (){
@@ -63,7 +66,7 @@ Route::group(['namespace' => 'Auth'] , function (){
 Route::group(['prefix' => 'articles'] , function (){
     $this->get('/' , 'ArticleController@index')->name('articles.index');
     $this->get('/{article}' , 'ArticleController@single')->name('articles.single');
-    $this->get('/searchArticle' , 'ArticleController@searchArticle')->name('articles.search');
+    $this->get('articles/search' , 'ArticleController@search')->name('articles.search');
 });
 
 Route::group(['prefix' => 'products'] , function (){
@@ -76,5 +79,12 @@ Route::group(['prefix' => 'categories'] , function (){
     $this->get('/{category}' , 'CategoryController@show')->name('categories.show');
 });
 
+// search
+Route::get('/searchArticle' , 'ArticleController@search')->name('articles.search');
+Route::get('/searchProduct' , 'ProductController@search')->name('products.search');
+Route::get('/search' , 'HomeController@search')->name('search');
+
+
+// Comment
 Route::post('/comment' , 'HomeController@comment')->name('send.comment');
 Route::post('/answercomment' , 'HomeController@answercomment')->name('answer.comment');

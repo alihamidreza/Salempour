@@ -1,11 +1,40 @@
+<style>
+    /* Rating Star Widgets Style */
+    .rating-stars ul {
+        direction: ltr !important;
+        list-style-type:none;
+        padding:0;
+        -moz-user-select:none;
+        -webkit-user-select:none;
+    }
+    .rating-stars ul > li.star {
+        display:inline-block;
+    }
+
+    /* Idle State of the stars */
+    .rating-stars ul > li.star > i.fa {
+        font-size:2.5em; /* Change the size of the stars */
+        color:#ccc; /* Color on idle state */
+
+    }
+
+    /* Hover state of the stars */
+    .rating-stars ul > li.star.hover > i.fa {
+        color:#FFCC36;
+    }
+
+    /* Selected state of the stars */
+    .rating-stars ul > li.star.selected > i.fa {
+        color:#FF912C;
+    }
+
+</style>
+
 <div class="col-md-9 direction comment">
     <br>
     <div class="border p-3 white">
         <p class="flex-center">
-        <div class="alert alert-success" style="text-align: center">با نظرات سازنده خودتون در بهبود کیفیت ما را
-            همراهی کنید.
-            <i class="fa fa-arrow-down" style="vertical-align: middle"></i>
-        </div>
+            <span class="font-weight-bold">لطفا دیدگاه خود را برای این صفحه بیان کنید.</span>
         </p>
         <!-- Rating Stars Box -->
         <div class='rating-stars text-center'>
